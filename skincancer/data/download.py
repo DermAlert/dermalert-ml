@@ -25,3 +25,13 @@ def fetch(isic_id: str, cache_dir: Path | None = None) -> Path:
                 return dest
         time.sleep(2)
     raise RuntimeError(f"Falha ao baixar {isic_id}")
+
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("isic_id", type=str, help="ID do ISIC")
+    parser.add_argument("--cache-dir", type=Path, default=cfg.cache_dir, help="Diretório de cache")
+    args = parser.parse_args()
+    path = fetch(args.isic_id, args.cache_dir)
+    print(f"Imagem salva em {path}")
