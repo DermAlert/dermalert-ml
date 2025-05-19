@@ -192,5 +192,4 @@ cython_debug/
 .idea
 
 # Data files
-*.csv
 *.zip
